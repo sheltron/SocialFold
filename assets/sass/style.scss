@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+
+body {
+	width: 100%;
+	background-image: url("../image/src/test-image.jpeg");
+	font-family: Quicksand ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 14px 0;
+}
+
+@import 'socialfold';
