@@ -2,7 +2,8 @@
 
 body {
 	width: 100%;
-	background-image: url("../image/src/test-image.jpeg");
+	background-image: url(../images/src/test-image.jpg);
+	background-size: contain;
 	font-family: Quicksand ;
 }
 

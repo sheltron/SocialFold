@@ -3,6 +3,7 @@ $sf-ease: cubic-bezier(.23,.77,.23,.77);
 
 #social-fold {
 	position: fixed;
+	width: 100%;
 	right: 0;
 	bottom: 0;
 	font-weight: bold;
@@ -27,7 +28,7 @@ $sf-ease: cubic-bezier(.23,.77,.23,.77);
 
 	.sf-block {
 		z-index: 2;
-		position: fixed;
+		position: absolute;
 		right: 0;
 		bottom: 0;
 		width: 80px;
@@ -50,92 +51,74 @@ $sf-ease: cubic-bezier(.23,.77,.23,.77);
 
 
 		&:nth-child(2) {
-			//transition-delay: 300ms;
 			transform: translate3d(-80px,0,0) rotateY(90deg);
 			transform-origin: right;
 			&.active {
-				//transition-delay: 0ms;
 				transform: translate3d(-80px,0,0) rotateY(0deg);
 			}
 		}
 
 		&:nth-child(3) {
-			//transition-delay: 450ms;
 			z-index: 2;
 			transform: translate3d(0,-80px,0) rotateX(90deg);
 			transform-origin: bottom;
 			&.active {
-				//transition-delay: 150ms;
 				transform: translate3d(0,-80px,0) rotateX(0deg);
 			}
 		}
 
 		&:nth-child(4) {
-			//transition-delay: 0ms;
 			transform: translate3d(-160px,0,0) rotateY(90deg);
 			transform-origin: right;
 			&.active {
-				//transition-delay: 300ms;
 				transform: translate3d(-160px,0,0) rotateY(0deg);
 			}
 		}
 
 		&:nth-child(5) {
-			//transition-delay: 0ms;
 			transform: translate3d(-80px,-80px,0) rotateX(90deg);
 			transform-origin: bottom;
 			&.active {
-				//transition-delay: 300ms;
 				transform: translate3d(-80px,-80px,0) rotateX(0deg);
 			}
 		}
 
 		&:nth-child(6) {
-			//transition-delay: 0ms;
 			transform: translate3d(0,-160px,0) rotateX(90deg);
 			transform-origin: bottom;
 			&.active {
-				//transition-delay: 300ms;
 				transform: translate3d(0,-160px,0) rotateX(0deg);
 			}
 		}
 
 		&:nth-child(7) {
-			//transition-delay: 0ms;
 			transform: translate3d(-240px,0,0) rotateY(90deg);
 			transform-origin: right;
 			&.active {
-				//transition-delay: 600ms;
 				transform: translate3d(-240px,0,0) rotateY(0deg);
 			}
 		}
 
 		&:nth-child(8) {
-			//transition-delay: 0ms;
 			transform: translate3d(-160px,-80px,0) rotateY(90deg);
 			transform-origin: right;
 			&.active {
-				//transition-delay: 600ms;
 				transform: translate3d(-160px,-80px,0) rotateY(0deg);
 			}
 		}
 
 		&:nth-child(9) {
-			//transition-delay: 0ms;
 			transform: translate3d(-80px,-160px,0) rotateY(90deg);
 			transform-origin: right;
 			&.active {
-				//transition-delay: 600ms;
 				transform: translate3d(-80px,-160px,0) rotateY(0deg);
 			}
 		}
 
 		&:nth-child(10) {
-			//transition-delay: 0ms;
 			transform: translate3d(0,-240px,0) rotateY(90deg);
 			transform-origin: right;
 			&.active {
-				//transition-delay: 600ms;
 				transform: translate3d(0,-240px,0) rotateY(0deg);
 			}
 		}

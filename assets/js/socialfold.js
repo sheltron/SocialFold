@@ -1,10 +1,9 @@
 class Socialfold {
 
 
-	constructor(options)
-	{
+	constructor(options) {
 		this.options = options;
-		this.delayIncrement = 100;
+		this.delayIncrement = 120;
 		this.container = document.getElementById('social-fold');
 		this.svg = {
 			'8tracks': '<svg id="sf-8tracks-icon" class="sf-icon" viewBox="0 0 512 512"><path d="M185.304 240.455c-47.581 0-86.09 38.586-86.104 86.165 0.012 47.596 38.522 86.182 86.104 86.182 47.54 0 85.997-38.588 86.019-86.182 0-24.309-0.005-30.236-0.005-30.236h-30.743c0 0 0 5.947 0 30.236 -0.028 15.331-6.179 29.058-16.201 39.12 -10.049 10.043-23.753 16.218-39.07 16.218 -15.333 0-29.021-6.179-39.097-16.218 -10.025-10.063-16.175-23.79-16.197-39.12 0.021-15.316 6.172-29.041 16.197-39.104 10.077-10.043 23.764-16.202 39.097-16.221 28.282 0 111.983 0 141.405 0 47.563 0 86.076-38.319 86.092-85.914 -0.016-47.613-38.527-86.164-86.092-86.18 -47.551 0.017-86.074 38.567-86.092 86.18 0 24.181-0.021 29.986-0.021 29.986h30.726c0 0 0-5.805 0-29.986 0.027-15.314 6.267-29.043 16.315-39.121 10.04-10.024 23.744-16.203 39.069-16.203 15.314 0 29.049 6.177 39.098 16.22 10.014 10.062 16.17 23.789 16.17 39.103 0 15.349-6.156 29.06-16.18 39.102 -10.039 10.043-23.773 15.955-39.088 15.971H185.304L185.304 240.455z"/></svg>',
@@ -43,7 +42,7 @@ class Socialfold {
 	init() {
 		var options = this.options;
 		var socialFold = this;
-		var size = 0;
+		var size = 12;
 
 
 		/**
@@ -52,7 +51,44 @@ class Socialfold {
 		 * @returns {number}
 		 */
 		var getTotalDelay = function () {
-				return size * socialFold.delayIncrement;
+			return size * socialFold.delayIncrement;
+		};
+
+
+		/**
+		 * Utility for calculating amount of rows based on total number of blocks
+		 *
+		 * @param n
+		 * @returns {number}
+		 */
+		var getRows = function (n) {
+			var rows = 0;
+			var modifier = 1;
+			for (var i = n; i > 0; i) {
+				i -= modifier;
+				modifier++;
+				rows++;
+			}
+			return rows;
+		};
+
+
+		var makeBlocks = function () {
+			var output = '';
+
+			var blockCounter = 0;
+			var i = 1;
+
+			while (i <= getRows(size)) {
+				for (var j = 1; j <= i; j++) {
+					if (blockCounter >= size) {
+						break;
+					}
+					blockCounter++;
+					console.log(blockCounter);
+				}
+				i++;
+			}
 		};
 
 
@@ -63,13 +99,13 @@ class Socialfold {
 		 * @param totalDelay
 		 * @param delayIncrement
 		 */
-		var fold = function(totalDelay, delayIncrement) {
+		var fold = function (totalDelay, delayIncrement) {
 			var blocks = document.getElementsByClassName('sf-block');
 			for (var i = 0; i < blocks.length; i++) {
 				blocks[i].classList.toggle('active');
 
 				if (blocks[i].classList.contains('active')) {
-					blocks[i].style.transitionDelay = `${delayIncrement*i}ms`;
+					blocks[i].style.transitionDelay = `${delayIncrement * i}ms`;
 				}
 				else if (!blocks[i].classList.contains('active')) {
 					blocks[i].style.transitionDelay = `${totalDelay - (i * delayIncrement)}ms`;
@@ -77,18 +113,23 @@ class Socialfold {
 			}
 		};
 
-		if(document.getElementById('sf-master') == null) {
+		if (document.getElementById('sf-master') == null) {
 			this.container.innerHTML +=
 					`<div id="sf-master" class="sf-block">social</div>`;
 		}
 
 		for (var key in options) {
 			this.container.innerHTML += `<div class="sf-block">${this.svg[key]}</div>`;
-			size++;
+			//size++;
 		}
 
-		document.getElementById('sf-master').addEventListener('click', function (e) {
-			console.log(getTotalDelay());
+
+
+		makeBlocks();
+
+
+
+		document.getElementById('sf-master').addEventListener('click', function () {
 			fold(getTotalDelay(), socialFold.delayIncrement);
 		});
 	}
