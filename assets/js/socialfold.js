@@ -73,6 +73,9 @@ class Socialfold {
 		};
 
 
+		/**
+		 * Construction of Blocks based on social links provided
+		 */
 		var makeBlocks = function () {
 			var output = '';
 
@@ -82,10 +85,10 @@ class Socialfold {
 			while (i <= getRows(size)) {
 				for (var j = 1; j <= i; j++) {
 					if (blockCounter >= size) {
+						console.log(options);
 						break;
 					}
 					blockCounter++;
-					console.log(blockCounter);
 				}
 				i++;
 			}
