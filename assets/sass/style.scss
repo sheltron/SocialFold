@@ -1,14 +1,31 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
 
+html {
+	font-size: 62.5%;
+}
+
 body {
-	width: 100%;
-	background-image: url(../images/src/test-image.jpg);
-	background-size: contain;
+	margin: 0;
+}
+
+.content {
+	color: #51888B;
+	height: 100vh;
+	background: transparent url(../images/src/test-image.jpg) no-repeat center;
+	background-size: cover;
 	font-family: Quicksand ;
 }
 
 h1, h2, h3, h4, h5, h6 {
+	margin: 0;
 	padding: 14px 0;
+}
+
+h1 {
+	text-align: center;
+	color: #C9B087;
+	font-size: 8rem;
+	font-weight: 700;
 }
 
 @import 'socialfold';

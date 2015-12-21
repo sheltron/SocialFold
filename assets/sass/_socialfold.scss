@@ -1,6 +1,11 @@
 $total-folds: 4;
 $sf-ease: cubic-bezier(.23,.77,.23,.77);
 
+$sf-color: #5E979B;
+$sf-darker: darken($sf-color, 20%);
+$sf-lighter: lighten($sf-color, 5%);
+
+
 #social-fold {
 	position: fixed;
 	width: 100%;
@@ -17,12 +22,12 @@ $sf-ease: cubic-bezier(.23,.77,.23,.77);
 	#sf-master.sf-block {
 		z-index: 3;
 		transition-delay: 300ms;
-		background-color: rgb(49, 95, 93);
+		background-color: $sf-color;
 		opacity: 1;
 		line-height: 80px;
 		&.active {
 			transition-delay: 0ms;
-			background-color: rgb(71, 122, 120);
+			background-color: $sf-lighter;
 		}
 	}
 
@@ -38,13 +43,13 @@ $sf-ease: cubic-bezier(.23,.77,.23,.77);
 		transform: translate3d(0,0,0);
 		transition: all .4s $sf-ease;
 		//box-shadow: inset 0px 0px 30px 5px rgba(0,0,0,0.1);
-		border: 1px solid rgba(71, 122, 120, 0);
-		background-color: rgb(17, 34, 32);
+		//border: 1px solid rgba(71, 122, 120, 0);
+		background-color: $sf-darker;
 		opacity: 1;
 
 		&.active {
-			border: 1px solid rgba(95, 120, 122, 1);
-			background-color: rgb(71, 122, 120);
+			//border: 1px solid rgba(95, 120, 122, 1);
+			background-color: $sf-lighter;
 			opacity: 1;
 		}
 
